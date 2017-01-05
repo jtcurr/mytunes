@@ -3,6 +3,9 @@ var SongQueue = Backbone.Collection.extend({
 
   model: SongModel,
 
+  //getQueued - return an array only with 'queued' songs
+
+
   initialize: function() {
   }
 

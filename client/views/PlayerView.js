@@ -7,7 +7,7 @@ var PlayerView = Backbone.View.extend({
 
   initialize: function() {
   },
-
+//deqeue songs when done playing current song
   setSong: function(song) {
     this.model = song;
     this.render();
