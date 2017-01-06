@@ -1,18 +1,18 @@
 // SongModel.js - Defines a backbone model class for songs.
 var SongModel = Backbone.Model.extend({
 
-    //set defaults where 'queued songs' === 'false'
-  defaults: {
-    inQueue: false
+  enqueue: function() {
+    this.trigger('enqueue', this);
   },
 
-  enqueue: function() {
-    if (this.get('inQueue') === true) {
-      this.set('inQueue', false);
-    } else {
-      this.set('inQueue', true);
-    }
+  dequeue: function() {
+    this.trigger('dequeue', this);
   },
+
+  ended: function() {
+    this.trigger('ended', this);
+  },
+
   //create a toggle function that will queue/unqueue a song
 
   play: function() {
