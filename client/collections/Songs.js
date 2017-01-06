@@ -3,8 +3,16 @@ var Songs = Backbone.Collection.extend({
 
   model: SongModel,
 
-  //this.listenTo(this.model.enqueue, 'change', this.render);
-    //1. initially HAVE A LIST OF ALL THE SONGS
-    //2. Eventually NEED TO RETREIEVE SONGS FROM SERVER
-    //http://tutorialzine.com/2013/04/services-chooser-backbone-js/
+  url: 'https://api.parse.com/1/classes/songs/',
+
+  parse: function(response) {
+    return response.results;
+  },
+
+  initialize: function() {
+    this.fetch({
+      data: { limit: 20}
+    });
+  }
+
 });

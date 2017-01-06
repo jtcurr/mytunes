@@ -7,6 +7,7 @@ var LibraryEntryView = Backbone.View.extend({
 
   events: {
     'click': function() {
+      this.model.play();
       //just want to send to PLayList on any music track clicked by the end-user
       this.model.enqueue();
     }
